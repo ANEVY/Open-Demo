@@ -2,11 +2,13 @@ import drivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
+import java.io.IOException;
+
 public class LoginTest {
     WebDriver driver;
     DriverManager driverManager;
     @BeforeTest
-    public void setDriverManager(){
+    public void setDriverManager() throws IOException {
         driverManager = DriverManager.getInstance();
         driver = driverManager.getDriver();
         driver.get("https://demo.opencart.com/admin/index.php");
