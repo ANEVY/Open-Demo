@@ -29,12 +29,18 @@ public class Login {
     WebElement forgottenPassword;
     @FindBy(css = "#form-login button[type='submit']")
     WebElement submitButton;
-    @FindBy(id="alert")
+    @FindBy(css="#alert .alert")
     WebElement alert;
 
     public void login_user(String username, String password){
         this.username.sendKeys(username);
         this.password.sendKeys(password);
         submitButton.click();
+    }
+    public WebElement getAlert(){
+        return this.alert;
+    }
+    public WebElement getForgottenPassword(){
+        return this.forgottenPassword;
     }
 }
