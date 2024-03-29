@@ -35,6 +35,9 @@ public class ForgottenPassword {
         this.email.sendKeys(email);
         this.submitButton.click();
     }
+    public void go_to_login_page(){
+        this.loginButton.click();
+    }
     public WebElement getAlert(){
         return this.alert;
     }
