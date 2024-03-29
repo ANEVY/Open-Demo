@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Login {
     WebDriver driver;
     public Login() throws IOException {
-        driver =  DriverManager.getInstance().getDriver();
+        driver =  DriverManager.get_instance().get_driver();
         PageFactory.initElements(driver,this);
     }
     // Define Page elements

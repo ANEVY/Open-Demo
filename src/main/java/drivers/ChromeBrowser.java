@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeBrowser implements Driver{
     @Override
-    public WebDriver setWebDriver() {
+    public WebDriver set_web_driver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 //        options.addArguments("start-maximise");

@@ -8,7 +8,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 public class EdgeBrowser implements Driver {
 
     @Override
-    public WebDriver setWebDriver() {
+    public WebDriver set_web_driver() {
         WebDriverManager.edgedriver().setup();
         EdgeOptions options = new EdgeOptions();
         return new EdgeDriver(options);

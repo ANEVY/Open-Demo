@@ -7,7 +7,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class FirefoxBrowser implements Driver{
     @Override
-    public WebDriver setWebDriver() {
+    public WebDriver set_web_driver() {
         WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
         options.addArguments("start-maximise");

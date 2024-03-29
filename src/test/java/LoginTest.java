@@ -15,8 +15,8 @@ public class LoginTest {
     @BeforeTest
     public void set_driver_manager() throws IOException {
         login = new Login();
-        driverManager = DriverManager.getInstance();
-        driver = driverManager.getDriver();
+        driverManager = DriverManager.get_instance();
+        driver = driverManager.get_driver();
         driver.get("https://demo.opencart.com/admin/index.php");
     }
     @Test
@@ -28,6 +28,6 @@ public class LoginTest {
     }
     @AfterTest
     public void close_driver_manager(){
-        driverManager.quitDriverInstance();
+        driverManager.quit_driver_instance();
     }
 }
