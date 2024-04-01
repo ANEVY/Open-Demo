@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import pages.ForgottenPassword;
 import pages.Login;
 
 import java.io.IOException;
@@ -12,12 +13,14 @@ public class LoginTest {
     WebDriver driver;
     DriverManager driverManager;
     Login login;
-    @BeforeTest
+    ForgottenPassword forgottenPassword;
+    @BeforeMethod
     public void set_driver_manager() throws IOException {
         login = new Login();
         driverManager = DriverManager.get_instance();
         driver = driverManager.get_driver();
         driver.get("https://demo.opencart.com/admin/index.php");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(90));
     }
 
     @Test(priority = -1)
@@ -42,13 +45,15 @@ public class LoginTest {
         assert driver.getCurrentUrl().contains("dashboard");
     }
     @Test(priority = 1)
-    public void verify_forgotten_password_Link(){
+    public void verify_forgotten_password_Link() throws IOException {
         login.getForgottenPassword().click();
         WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(30));
         wait.until(ExpectedConditions.urlContains("forgotten"));
         assert driver.getCurrentUrl().contains("forgotten");
+        forgottenPassword = new ForgottenPassword();
+        forgottenPassword.go_to_login_page();
     }
-    @AfterTest
+    @AfterMethod
     public void close_driver_manager(){
         driverManager.quit_driver_instance();
     }

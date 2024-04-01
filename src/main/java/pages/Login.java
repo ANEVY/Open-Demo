@@ -5,8 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class Login {
     WebDriver driver;
@@ -33,6 +36,8 @@ public class Login {
     WebElement alert;
 
     public void login_user(String username, String password){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.visibilityOf(this.username));
         this.username.sendKeys(username);
         this.password.sendKeys(password);
         submitButton.click();
