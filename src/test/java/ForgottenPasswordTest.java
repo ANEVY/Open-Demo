@@ -1,9 +1,7 @@
 import drivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pages.ForgottenPassword;
 
 import java.io.IOException;
@@ -14,7 +12,7 @@ public class ForgottenPasswordTest {
     ForgottenPassword forgottenPassword;
     DriverManager driverManager;
 
-    @BeforeTest
+    @BeforeMethod
     public void set_driver_manager() throws IOException {
         forgottenPassword = new ForgottenPassword();
         driverManager = DriverManager.get_instance();
@@ -35,7 +33,7 @@ public class ForgottenPasswordTest {
         assert driver.getCurrentUrl().contains("login");
     }
 
-    @AfterTest
+    @AfterMethod
     public void close_driver_manager(){
         driverManager.quit_driver_instance();
     }
