@@ -14,7 +14,7 @@ Follow these steps to set it up
 * install java on your computer
 * install maven
 * install intelliJ(optional)
-### Installation
+### Setup
 * clone the project git clone <git url>
 * open the POM file and refresh the maven dependencies
 * There you go happy testing
@@ -24,3 +24,9 @@ Follow these steps to set it up
 * Functions - Snake Case
 * Variable - Camel Case
 * Directories - Hyphenated
+
+## Framework Properties
+* Use the properties file to set your browser
+
+## Cloud flair issues
+You might run into Cloudflare security check. I have managed to limit it by using testNg BeforeMethod to set the driver and AfterMethod to quit the driver
