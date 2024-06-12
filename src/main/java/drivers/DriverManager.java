@@ -25,7 +25,6 @@ public class DriverManager {
                 driver = new EdgeBrowser().set_web_driver();
                 break;
             case "firefox":
-                System.out.println("We got here");
                 driver = new FirefoxBrowser().set_web_driver();
                 break;
             default:
@@ -36,6 +35,7 @@ public class DriverManager {
 
     public void quit_driver_instance(){
         instance = null;
+        driver.quit();
     }
     public WebDriver get_driver(){
         return driver;
